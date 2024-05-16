@@ -305,9 +305,9 @@ function draw() {
         let viewRoot = new Vec2(320, 180); //3Dビュー基準
         let wallDist = hitPos.sub(beam.begin).mag();//壁までの距離=（交点-プレイヤー位置）の大きさ
         let wallPerpDist = wallDist * cos(angle - centerAngle);//垂直距離perpendicular
-        let lineHeight = 2800 / wallPerpDist;//壁から遠いほど壁短く (分数関数)
+        let lineHeight = constrain(2800 / wallPerpDist, 0, viewRect.way.y);//壁から遠いほど壁短く (分数関数)、constrain()画面からはみ出さないようにする。
         /*
-        viewRoot：y成分で画面中央左端
+        viewRoot：y成分の画面中央、x成分左端
         lineBegin：視点の縦線の始点
         画面幅/視線数だけずらして描画。
         ループを重ねるたびに右にずらすので、ループ回数beamIndexをかける。
@@ -332,7 +332,7 @@ function draw() {
         point(hitPos.x, hitPos.y);//交点に点を打つ
 
         // 3Dビューに描画
-        let viewRoot = new Vec2(320, 180); //3Dビューの画面配置
+        let viewRoot = new Vec2(320, 180); //3Dビューの画面の基準点
         let gridDist = hitPos.sub(beam.begin).mag();//壁までの距離=（交点-プレイヤー位置）の大きさ
         let gridPerpDist = gridDist * cos(angle - centerAngle);//垂直距離perpendicular
         let lineHeight = constrain(2800 / gridPerpDist, 0, viewRect.way.y);//壁から遠いほど壁短く
