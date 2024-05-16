@@ -1,0 +1,37 @@
+body{
+  /* margin-top: 50px; */
+  background-color: rgb(10, 30, 60);
+  display: flex;
+  /* flex-flow: column; */
+
+  justify-content: center;
+  flex-direction: column;
+}
+#game{
+  margin: 0, auto;
+}
+.game_child{
+  display: flex;
+  justify-content: center;
+  margin: 0, auto;
+}
+
+h1{
+  text-align: center;
+  margin-bottom: 70px;
+  color:rgb(200, 200, 0);
+}
+
+p{
+  color:rgb(200, 200, 0);
+  margin-left: 50px;
+  margin-right: 50px;
+  /* font-weight: bold; */
+}
+
+#defaultCanvas0{
+  margin:0 auto;
+}
+/* canvas {
+} */
+
